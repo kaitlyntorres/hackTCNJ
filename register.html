@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+<!-- Creates registration form containing email and password :: eventually can make a confirm password input to make sure passwords match, or we can check password criteria in realtime-->
+        <form>
+            <div class="container">
+                <h1>Register</h1>
+        
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Email" name="email" id="email" required><br><br>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Password" name="password" id="password" required><br><br>
+        
+                <button type="button" id="submit" name="submit" class="registerbtn">Register</button>
+            </div>
+        </form>
+        
+        </body>
+        </html>
+        
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+            import {getAuth,createUserWithEmailAndPassword,} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+            import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+        
+
+        
+            //Our unique Firebase configuration located on our firebase site
+            const firebaseConfig = {
+            apiKey: "AIzaSyAvmVvbxCWEAuJdI0mtT0Ol004lb-2Evnc",
+            authDomain: "hackathon-c1295.firebaseapp.com",
+            projectId: "hackathon-c1295",
+            storageBucket: "hackathon-c1295.appspot.com",
+            messagingSenderId: "983494818256",
+            appId: "1:983494818256:web:5fa1b7489d0edaf20d61d5",
+            measurementId: "G-64RWGDT1NN"
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth();
+            const database = getDatabase(app);
+        
+            // on button click takes user's information and stores it into firebase if it meets criteria
+            submit.addEventListener('click', (e) => {
+        
+                var em= document.getElementById('email').value;
+                var p = document.getElementById('password').value;
+        
+                //sign up user
+                createUserWithEmailAndPassword(auth, em, p)
+                    .then((userCredential) => {
+                        
+                        const user = userCredential.user;
+                    
+                        //sets credentials to a user's unique uid made my firebase
+                        set(ref(database, 'users/' + user.uid), {
+                            email: em,
+                            password: p
+                        })
+                            .then(() => {
+                                // Data saved successfully!
+                                
+                                
+                                
+                
+                            })
+
+                            //calls any errors
+                            .catch((error) => {
+                                // data wasn't saved, error shows up on page
+                                alert(error);
+                            });
+
+                              //goes to next page upon successful registration
+                            window.location.href = "r.html";
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(errorMessage);
+                    });
+
+
+                   
+                    });
+
+                
+                </script>
