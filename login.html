@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+
+<!-- Creates registration form containing email and password :: eventually can make a confirm password input to make sure passwords match, or we can check password criteria in realtime-->
+        <form>
+            <div class="container">
+                <h1>Login</h1>
+        
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Email" name="email" id="email" required><br><br>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Password" name="password" id="password" required><br><br>
+        
+                <button type="button" id="submit" name="submit" class="loginbtn">Login</button>
+            </div>
+        </form>
+        
+        </body>
+        </html>
+        
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+            import {getAuth,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+            import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+        
+
+        
+            //Our unique Firebase configuration located on our firebase site
+            const firebaseConfig = {
+            apiKey: "AIzaSyAvmVvbxCWEAuJdI0mtT0Ol004lb-2Evnc",
+            authDomain: "hackathon-c1295.firebaseapp.com",
+            projectId: "hackathon-c1295",
+            storageBucket: "hackathon-c1295.appspot.com",
+            messagingSenderId: "983494818256",
+            appId: "1:983494818256:web:5fa1b7489d0edaf20d61d5",
+            measurementId: "G-64RWGDT1NN"
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth();
+            const database = getDatabase(app);
+            submit.addEventListener('click',(e)=>{
+                var em = document.getElementById('email').value;
+                var p = document.getElementById('password').value;
+            
+                signInWithEmailAndPassword(auth, em, p)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+            
+                    const dt = new Date();
+                    update(ref(database, 'users/' + user.uid),{
+                    last_login: dt,
+                    })
+            
+                    //alert('User logged in!');
+
+                    //goes to next page upon successful login
+                    window.location.href = "landingpage.html";
+
+              
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+            
+                    alert(errorMessage);
+            });
+            
+            });
+
+</script>
