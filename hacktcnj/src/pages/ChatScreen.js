@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ChatScreen.css";
 import { Avatar } from "@mui/material";
 import Header from "../components/Header";
+//import {database, auth} from '../firebase'
+import {collection, query, limit, orderBy, onSnapshot, QuerySnapshot} from 'firebase/firestore';
 
 function ChatScreen() {
   const [input, setInput] = useState('');
@@ -22,6 +24,26 @@ function ChatScreen() {
       message: "Replied!",
     },
   ]);
+
+  /*
+  useEffect(() => {
+    const q = query(
+      collection(database, "messages"),
+      orderBy("timestamp")
+    );
+    const data = onSnapshot(q, (QuerySnapshot) => {
+      let messages = [];
+      QuerySnapshot.forEach((doc) => {
+        messages.push({...doc.data(), id: doc.id});
+
+      });
+      setMessages(messages);
+    });
+    return () => data;
+  })
+  */
+
+  //const {userid} = auth.currentUser
 
   const handleSend = (e) => {
     e.preventDefault();

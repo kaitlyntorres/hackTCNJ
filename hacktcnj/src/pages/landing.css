@@ -1,0 +1,73 @@
+.landing-header{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.landing-logo{
+    margin-left: 20px;
+}
+
+.landing-header img {
+    width: 50px;
+    height: 50px;
+}
+
+.landing-header button{
+    height: 40px;
+    width: 70px;
+    background-color: rgb(202, 101, 202);
+    color: white;
+    margin-top: 7px;
+    margin-right: 30px;
+    border: none;
+    box-shadow: 0px 10px 53px 0px rgba(45, 1, 87, 0.3);
+    cursor: pointer;
+    border-radius: 20px;
+
+
+}
+
+.landing-logo{
+    display: flex;
+}
+
+.landing-logo h2{
+    color: rgb(141, 47, 141);
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.tagline{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 86.6%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;   
+    background-color: rgb(44, 42, 42);
+    object-fit: contain;
+
+    position: absolute;
+}
+
+.tagline h1 {
+    color: white;
+}
+
+.tagline button{
+    margin-top: 40px;
+    background-color: rgb(136, 70, 136);
+    width: 250px;
+    height: 40px;
+    color: white;
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 10px 53px 0px rgba(45, 1, 87, 0.3);
+
+
+
+}

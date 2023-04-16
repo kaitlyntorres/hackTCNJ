@@ -9,25 +9,25 @@ function Chats()  {
 
         <Chat
           name="Berat"
-          message="Hello"
+          message="I am a beast in React"
           timestamp="40 seconds"
           profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/1200px-Outdoors-man-portrait_%28cropped%29.jpg"
         />
         <Chat
           name="Hugo"
-          message="Im nice"
+          message="Love Firebase!"
           timestamp="40 seconds"
           profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/1200px-Outdoors-man-portrait_%28cropped%29.jpg"
         />º
         <Chat
           name="Kaitlyn"
-          message="Shut the fuck up"
+          message="Enjoy coding in Python!"
           timestamp="40 seconds"
           profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait00px-Outdoors-man-portrait_%28cropped%29.jpg"
         />
         <Chat
           name="KP"
-          message="Lets go play stack"
+          message="I like CSS"
           timestamp="40 seconds"
           profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/1200px-Outdoors-man-portrait_%28cropped%29.jpg"
         />

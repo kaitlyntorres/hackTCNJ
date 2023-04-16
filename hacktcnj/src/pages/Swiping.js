@@ -35,7 +35,6 @@ const Swiping = () => {
   return (
     <div>
       <Header />
-
       <div className="container">
         {people.map((person) => (
           <TinderCard
