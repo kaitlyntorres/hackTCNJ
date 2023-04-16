@@ -5,35 +5,33 @@ import {
   signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 import database from "../firebase";
-import {
-  getDatabase,
-  set,
-  ref as sRef,
-  update,
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Added state for error message
 
   const handleLogin = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        // Signed in
-        const user = userCredential.user;
-
-        const dt = new Date();
-        update((sRef, database, "users" + user.uid), {
-          last_login: dt,
+    if (email === "" || password === "") { // Check if email and password are empty
+      setErrorMessage("Please enter email and password"); // Set error message
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log(userCredential);
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/swiping");
+        })
+        .catch((error) => {
+          setErrorMessage(error.message); // Set error message from Firebase
         });
-      })
-
-      alert("Success")
-      
-
+    }
   };
 
   return (
@@ -41,10 +39,9 @@ const Login = () => {
       <form onSubmit={(e) => handleLogin(e)}>
         <h1>Login</h1>
         <br></br>
-
+        {errorMessage && <p style={{color: "red"}}>{errorMessage}</p>} {/* Render error message */}
         <label for="email">
           <b>Email:  </b>
-        
         </label>
         <input
           type="email"

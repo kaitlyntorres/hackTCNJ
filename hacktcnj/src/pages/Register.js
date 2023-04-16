@@ -1,56 +1,53 @@
+import "./login.css";
 import React, { useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 import database from "../firebase";
-import {
-  getDatabase,
-  set,
-  ref as sRef,
-  update,
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
+import { setDoc, collection, getDocs, query, where, doc } from "firebase/firestore";
+
 
 const Register = () => {
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+
+    try{
+    const {user} = await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-
-        //sets credentials to a user's unique uid made my firebase
-        set((sRef, database, "users/" + user.uid), {
-          email: email,
-          password: password,
-        })
-          .then(() => {
-            // Data saved successfully!
-          })
-
-          //calls any errors
-          .catch((error) => {
-            // data wasn't saved, error shows up on page
-            alert(error);
-          });
+        // Signed in
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
+      database.collection("users").doc(user.uid).set({
+        name: email
+      })
+    }
+    
+    catch(err){
+
+        console.error(err)
+    }
+    
+      alert()
+
   };
 
   return (
-    <div className="register">
+    <div className="login">
       <form onSubmit={(e) => handleRegister(e)}>
         <h1>Register</h1>
+        <br></br>
 
         <label for="email">
-          <b>Email</b>
+          <b>Email:  </b>
+        
         </label>
         <input
           type="email"
@@ -60,8 +57,11 @@ const Register = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <br></br>
+        <br></br>
+
         <label>
-          <b>Password</b>
+          <b>Password:   </b>
         </label>
         <input
           type="password"
@@ -72,12 +72,8 @@ const Register = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <input type="file" id="myFile" name="filename"/>
-        
-
-
-
+        <br></br>
+        <br></br>
 
         <button type="submit">Register</button>
       </form>
