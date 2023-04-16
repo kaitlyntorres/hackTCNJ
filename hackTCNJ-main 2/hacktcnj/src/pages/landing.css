@@ -1,0 +1,87 @@
+.landing {
+    background-image: url('https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?cs=srgb&dl=pexels-hasan-albari-1229861.jpg&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 99%;
+  }
+  
+  .landing-logo {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .landing-logo img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .landing-logo h2 {
+    color: rgb(229, 201, 229);
+    margin-left: 20px;
+  }
+  
+  .tagline {
+    text-align: center;
+    justify-content: center;
+    margin-top: 200px;
+  }
+  
+  .tagline h1 {
+    color: white;
+    font-size: 36px;
+  }
+  
+  .tagline button {
+    margin-top: 40px;
+    background-color: rgb(136, 70, 136);
+    width: 250px;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 10px 53px 0px rgba(45, 1, 87, 0.3);
+  }
+  
+  .landing-header button,
+  .tagline button {
+    background-color: rgb(202, 101, 202);
+    color: white;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    margin-top: 7px;
+    margin-right: 25px;
+    border: none;
+    box-shadow: 0px 10px 53px 0px rgba(45, 1, 87, 0.3);
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .landing-header button:hover,
+  .tagline button:hover {
+    background-color: purple;
+  }
+  
+  a {
+    color: purple;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
