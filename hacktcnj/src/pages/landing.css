@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     font-family: Arial, sans-serif;
   }
   
@@ -15,6 +14,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    width: 99%;
   }
   
   .landing-logo {
@@ -29,12 +29,14 @@
   }
   
   .landing-logo h2 {
-    color: rgb(141, 47, 141);
+    color: rgb(229, 201, 229);
     margin-left: 20px;
   }
   
   .tagline {
     text-align: center;
+    justify-content: center;
+    margin-top: 200px;
   }
   
   .tagline h1 {

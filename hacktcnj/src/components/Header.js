@@ -14,15 +14,17 @@ const Header = () => {
         </IconButton>
       </Link>
       <Link>
-          <img
+        <img
           className="logo"
           src="https://media.discordapp.net/attachments/330876691893190677/1096858814256521326/JustLogo_1.png"
         />
       </Link>
 
-      <IconButton color="purple">
-        <ChatBubbleIcon className="icon" fontSize="large" />
-      </IconButton>
+      <Link to="/chat">
+        <IconButton color="purple">
+          <ChatBubbleIcon className="icon" fontSize="large" />
+        </IconButton>
+      </Link>
     </div>
   );
 };

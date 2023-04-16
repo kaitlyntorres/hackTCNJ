@@ -28,6 +28,11 @@ const Register = () => {
       database.collection("users").doc(user.uid).set({
         name: email
       })
+
+      await setDoc(doc(database, "users", "hHenryu"),{
+        name: "Henry",
+        description: "I'm cool"
+      })
     }
     
     catch(err){
@@ -35,7 +40,7 @@ const Register = () => {
         console.error(err)
     }
     
-      alert()
+    navigate("/swiping")
 
   };
 

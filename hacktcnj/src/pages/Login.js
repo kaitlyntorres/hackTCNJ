@@ -26,12 +26,15 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/swiping");
         })
         .catch((error) => {
           setErrorMessage(error.message); // Set error message from Firebase
         });
+
     }
+
+    navigate("/swiping");
+
   };
 
   return (

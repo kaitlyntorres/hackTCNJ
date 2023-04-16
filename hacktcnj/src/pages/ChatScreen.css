@@ -26,12 +26,13 @@
 }
 
 .chatScreen__input {
-    display: flex;
     padding: 5px;
-    position: fixed;
     bottom: 0;
     width: 100%;
     border-top: 1px solid lightgray;
+    margin-top: 195px;
+    overflow: hidden;
+    position: fixed;
 }
  
 .chatScreen__inputField:focus {
@@ -47,7 +48,8 @@
 .chatScreen__inputButton {
     border: none;
     margin-right: 20px;
+    width: 40px;
     background-color: white;
     font-weight: bolder;
-    color: purple;
+    color: rgb(229, 68, 229);
 }

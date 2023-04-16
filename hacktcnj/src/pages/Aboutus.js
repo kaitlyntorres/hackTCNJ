@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Chat from "../components/Chat";
 import Header from '../components/Header';
 import "./aboutus.css";
+import database from '../firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 function Aboutus() {
   // State to manage chat messages
@@ -12,6 +14,7 @@ function Aboutus() {
     // Add the new message to the messages state
     setMessages([...messages, message]);
   }
+
 
   return (
     <div>
