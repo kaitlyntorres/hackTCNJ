@@ -16,4 +16,8 @@ function Cities(){
   );
 }
 
+<<<<<<< HEAD
 export default Cities;
+=======
+export default Cities;
+>>>>>>> c97d72724b9a4881a5542d482231c085875e515c
