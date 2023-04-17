@@ -10,7 +10,7 @@ Kivanc Peltek
 Our goal was to create a website where users can search for other developers in a close proximity to collaborate on projects and connnect with those with similar interest in regards to programming
 
 # Usage
-Users can run this website by launching the domain www.pixelpair.tech
+Users can run this website by launching the domain "pixelpair.tech"
 
 # Guide
 Users will be greeted upon launching of the app. From there they will be asked to login or create an account.
