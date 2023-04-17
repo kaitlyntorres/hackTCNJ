@@ -3,7 +3,7 @@
 Members:<br />
 Kaitlyn Torres <br />
 Berat Kales <br />
-Hugo Muñoz  <br />
+Hugo Muñoz Reinoso  <br />
 Kivanc Peltek
 
 # Objective
