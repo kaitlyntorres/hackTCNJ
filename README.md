@@ -19,7 +19,7 @@ Once they choose an option and is successfully authenticated into the webiste, t
 # Hackathon
 This project was for the MLH sponsored TCNJ Hackathon, where we had only 24 hours to make as much progress as possible. 
 
-# Teaser Videp
+# Teaser Video
 [![Watch the video]([https://img.youtube.com/vi/VeRcqsJv9Kk/maxresdefault.jpg](https://raw.githubusercontent.com/kaitlyntorres/hackTCNJ/main/hacktcnj/public/logo192.png))](https://drive.google.com/file/d/1t6gzIGL5hW0ZhM1DbdKz_y00lO7TEYq1/view?usp=sharing)
 
 
